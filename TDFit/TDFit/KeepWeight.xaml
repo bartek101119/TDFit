@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:TDFit.ViewModel"
+             mc:Ignorable="d"
+             x:Class="TDFit.KeepWeight"
+             BackgroundColor="GhostWhite">
+    <ContentPage.BindingContext>
+        <local:Gender></local:Gender>
+     </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <StackLayout Margin="40">
+            <Frame 
+            Padding="10, 5, 10, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                <Picker ItemDisplayBinding="{Binding Gender}" x:Name="genderEntry"
+                    Title="Wybierz płeć:" 
+                    ItemsSource="{Binding Calories}" HorizontalOptions="CenterAndExpand" />
+            </Frame>
+
+            <Grid>
+                <Frame
+            Padding="10, 5, 10, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                    <Entry x:Name="weightEntry" Placeholder="Podaj swoją wagę:" HorizontalOptions="CenterAndExpand" Keyboard= "Numeric"  HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+                </Frame>
+            </Grid>
+
+            <Grid>
+                <Frame
+            Padding="10, 5, 10, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                    <Entry x:Name="growthEntry" Placeholder="Podaj swój wzrost:" HorizontalOptions="CenterAndExpand" Keyboard= "Numeric" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+                </Frame>
+            </Grid>
+
+            <Grid>
+                <Frame
+            Padding="10, 5, 10, 5"
+            HasShadow="False"
+            BorderColor="Gray"
+            CornerRadius="30">
+                    <Entry x:Name="ageEntry" Placeholder="Podaj swój wiek:" HorizontalOptions="CenterAndExpand" Keyboard= "Numeric" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+                </Frame>
+            </Grid>
+            <Frame 
+            Padding="10, 5, 10, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                <Picker ItemDisplayBinding="{Binding Activity}" x:Name="activityEntry"
+                    Title="Wybierz swoją aktywność:" 
+                    ItemsSource="{Binding Activities}" HorizontalOptions="CenterAndExpand" />
+            </Frame>
+            <Button Text="Oblicz" BackgroundColor="Blue" FontAttributes="Bold" 
+                Clicked="OnCalculateClicked" CornerRadius="18" TextColor="White" />
+        </StackLayout>
+       
+    </ContentPage.Content>
+</ContentPage>

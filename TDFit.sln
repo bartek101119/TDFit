@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDFit.Android", "TDFit\TDFit.Android\TDFit.Android.csproj", "{1693AE6C-7D99-49AA-9B3D-0493AD141DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDFit", "TDFit\TDFit\TDFit.csproj", "{5D118E3A-86F2-453C-932E-B7F9CD292847}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1693AE6C-7D99-49AA-9B3D-0493AD141DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1693AE6C-7D99-49AA-9B3D-0493AD141DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1693AE6C-7D99-49AA-9B3D-0493AD141DCA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1693AE6C-7D99-49AA-9B3D-0493AD141DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1693AE6C-7D99-49AA-9B3D-0493AD141DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1693AE6C-7D99-49AA-9B3D-0493AD141DCA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5D118E3A-86F2-453C-932E-B7F9CD292847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D118E3A-86F2-453C-932E-B7F9CD292847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D118E3A-86F2-453C-932E-B7F9CD292847}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5D118E3A-86F2-453C-932E-B7F9CD292847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D118E3A-86F2-453C-932E-B7F9CD292847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D118E3A-86F2-453C-932E-B7F9CD292847}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6C73E34-9E54-410B-AF4C-64A5EA77B5BE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TDFit.MainPage"
+             BackgroundColor="GhostWhite">
+
+    <NavigationPage.TitleView>
+        <Label Text="Strona Główna" TextColor="White" FontSize="Title" Margin="10,0" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+    <StackLayout>
+        <Grid>
+                <Button  Text="Podsumowanie" BackgroundColor="Blue" FontAttributes="Bold" 
+                Clicked="OnSummaryClicked" CornerRadius="18" TextColor="White" Grid.Column="0" Grid.Row="3"   />
+
+                <Button  Text="Chcę schudnąć" BackgroundColor="Blue" FontAttributes="Bold" 
+                Clicked="OnLoseWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="3"   />
+                <Button Text="Chcę przytyć" BackgroundColor="Blue" FontAttributes="Bold" 
+                Clicked="OnGainWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="5" />
+        <Button Text="Chcę utrzymać wagę" BackgroundColor="Blue" FontAttributes="Bold"
+                Clicked="OnKeepWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="7"  />
+        </Grid>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
