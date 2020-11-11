@@ -14,7 +14,7 @@ namespace TDFit
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class KeepWeight : ContentPage
     {
-        double malebmr, femalebmr, calories;
+        double malebmr, femalebmr;
         double height, weight, age;
         public double Calories { get; set; }
         public KeepWeight()
@@ -23,58 +23,58 @@ namespace TDFit
             
         }
 
-        public async void CalorieCalculator()
+        public async void CalorieCalculator(int numberOne, int numberTwo, int numberThree, int numberFour, int numberFive)
         {
             height = double.Parse(growthEntry.Text);
             weight = double.Parse(weightEntry.Text);
             age = double.Parse(ageEntry.Text);
 
-            if (((Calorie)activityEntry.SelectedItem).ActivityId == 1 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
+            if (((Calorie)activityEntry.SelectedItem).ActivityId == numberOne && (((Calorie)genderEntry.SelectedItem).GenderId == numberOne))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
                 Calories = femalebmr * 1.2;
             }
-            else if (((Calorie)activityEntry.SelectedItem).ActivityId == 2 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
+            else if (((Calorie)activityEntry.SelectedItem).ActivityId == numberTwo && (((Calorie)genderEntry.SelectedItem).GenderId == numberOne))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
                 Calories = femalebmr * 1.3;
             }
-            else if (((Calorie)activityEntry.SelectedItem).ActivityId == 3 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
+            else if (((Calorie)activityEntry.SelectedItem).ActivityId == numberThree && (((Calorie)genderEntry.SelectedItem).GenderId == numberOne))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
                 Calories = femalebmr * 1.5;
             }
-            else if (((Calorie)activityEntry.SelectedItem).ActivityId == 4 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
+            else if (((Calorie)activityEntry.SelectedItem).ActivityId == numberFour && (((Calorie)genderEntry.SelectedItem).GenderId == numberOne))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
                 Calories = femalebmr * 1.7;
             }
-            else if (((Calorie)activityEntry.SelectedItem).ActivityId == 5 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
+            else if (((Calorie)activityEntry.SelectedItem).ActivityId == numberFive && (((Calorie)genderEntry.SelectedItem).GenderId == numberOne))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
                 Calories = femalebmr * 1.9;
             }
-            if (((Calorie)activityEntry.SelectedItem).ActivityId == 1 && (((Calorie)genderEntry.SelectedItem).GenderId == 2))
+            if (((Calorie)activityEntry.SelectedItem).ActivityId == numberOne && (((Calorie)genderEntry.SelectedItem).GenderId == numberTwo))
             {
                 malebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) + 5;
                 Calories = malebmr * 1.2;
             }
-            else if (((Calorie)activityEntry.SelectedItem).ActivityId == 2 && (((Calorie)genderEntry.SelectedItem).GenderId == 2))
+            else if (((Calorie)activityEntry.SelectedItem).ActivityId == numberTwo && (((Calorie)genderEntry.SelectedItem).GenderId == numberTwo))
             {
                 malebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) + 5;
                 Calories = malebmr * 1.3;
             }
-            else if (((Calorie)activityEntry.SelectedItem).ActivityId == 3 && (((Calorie)genderEntry.SelectedItem).GenderId == 2))
+            else if (((Calorie)activityEntry.SelectedItem).ActivityId == numberThree && (((Calorie)genderEntry.SelectedItem).GenderId == numberTwo))
             {
                 malebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) + 5;
                 Calories = malebmr * 1.5;
             }
-            else if (((Calorie)activityEntry.SelectedItem).ActivityId == 4 && (((Calorie)genderEntry.SelectedItem).GenderId == 2))
+            else if (((Calorie)activityEntry.SelectedItem).ActivityId == numberFour && (((Calorie)genderEntry.SelectedItem).GenderId == numberTwo))
             {
                 malebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) + 5;
                 Calories = malebmr * 1.7;
             }
-            else if (((Calorie)activityEntry.SelectedItem).ActivityId == 5 && (((Calorie)genderEntry.SelectedItem).GenderId == 2))
+            else if (((Calorie)activityEntry.SelectedItem).ActivityId == numberFive && (((Calorie)genderEntry.SelectedItem).GenderId == numberTwo))
             {
                 malebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) + 5;
                 Calories = malebmr * 1.9;
@@ -85,7 +85,7 @@ namespace TDFit
 
         private void OnCalculateClicked(object sender, EventArgs e)
         {
-            CalorieCalculator();
+            CalorieCalculator(1,2,3,4,5);
         }
     }
 }

@@ -29,27 +29,27 @@ namespace TDFit
             if (((Calorie)activityEntry.SelectedItem).ActivityId == 1 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
-                Calories = femalebmr * 1.2 + 200;
+                Calories = femalebmr * 1.2 + 300;
             }
             else if (((Calorie)activityEntry.SelectedItem).ActivityId == 2 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
-                Calories = femalebmr * 1.3 + 200;
+                Calories = femalebmr * 1.3 + 300;
             }
             else if (((Calorie)activityEntry.SelectedItem).ActivityId == 3 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
-                Calories = femalebmr * 1.5 + 200;
+                Calories = femalebmr * 1.5 + 300;
             }
             else if (((Calorie)activityEntry.SelectedItem).ActivityId == 4 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
-                Calories = femalebmr * 1.7 + 200;
+                Calories = femalebmr * 1.7 + 300;
             }
             else if (((Calorie)activityEntry.SelectedItem).ActivityId == 5 && (((Calorie)genderEntry.SelectedItem).GenderId == 1))
             {
                 femalebmr = (9.99 * weight) + (6.25 * height) + (4.92 * age) - 161;
-                Calories = femalebmr * 1.9 + 200;
+                Calories = femalebmr * 1.9 + 300;
             }
             if (((Calorie)activityEntry.SelectedItem).ActivityId == 1 && (((Calorie)genderEntry.SelectedItem).GenderId == 2))
             {
