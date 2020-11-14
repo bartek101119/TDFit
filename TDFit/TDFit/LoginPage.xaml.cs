@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using TDFit.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,61 +21,54 @@ namespace TDFit
         
         }
 
-        private async void OnMainPageClicked(object sender, EventArgs e)
+       /* private async void OnMainPageClicked(object sender, EventArgs e)
         {
-            var response = await LoginAsync(email.Text, password.Text);
+            var response = LoginAsync(email.Text, password.Text);
             if (response == "1")
                 await DisplayAlert("Brak połączenia", "Nie masz połączenia z internetem lub serwer nie jest dostępny", "OK");
             else if (string.IsNullOrEmpty(response))
                 await DisplayAlert("Błędne dane", "Spróbuj ponownie", "OK");
             else
                 await Navigation.PushAsync(new MainPage());
-        }
+        }*/
 
-        public async Task<string> LoginAsync(string userName, string password)
+        public async void OnMainPageClicked(object sender, EventArgs e)
         {
-
-            string URL = "http://172.17.82.129:44417/api/account/login";
-            var accessToken = string.Empty;
-            await Task.Run(() =>
+            var result = string.Empty;
+            try
             {
-                try
+                var client = new HttpClient();
+
+                // string jsonData = @"{""Email"" : ""test123@wp.pl"", ""Password"" : ""123456""}";
+
+                LoginModel login = new LoginModel
                 {
-                    var keyValues = new List<KeyValuePair<string, string>>
-                    {
-                        new KeyValuePair<string, string>("Username", userName),
-                        new KeyValuePair<string, string>("Password", password),
-                        new KeyValuePair<string, string>("grant_type", "password")
-                    };
-                    var request = new HttpRequestMessage(
-                        HttpMethod.Post, URL);
+                    Email = email.Text,
+                    Password = password.Text
+                };
 
-                    request.Content = new FormUrlEncodedContent(keyValues);
+                var json = JsonConvert.SerializeObject(login);
 
-                    var client = new HttpClient();
-                    client.Timeout = TimeSpan.FromSeconds(7);
-                    var response = client.SendAsync(request).Result;
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("http://192.168.43.212:45459/api/account/login", content);
 
-                    using (HttpContent content = response.Content)
-                    {
-                        var json = content.ReadAsStringAsync();
-                        JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(json.Result);
-                        var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
-                        accessToken = jwtDynamic.Value<string>("access_token");
+                // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
+                result = await response.Content.ReadAsStringAsync();
 
-                        var Username = jwtDynamic.Value<string>("userName");
-                        var AccessTokenExpirationDate = accessTokenExpiration;
-                        Application.Current.Properties["MyToken"] = $"{accessToken}";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    accessToken = "1";
-                }
-            });
-            return accessToken;
+                Console.WriteLine(result);
+                Application.Current.Properties["MyToken"] = $"{result}";
+            }
+            catch(Exception xd)
+            {
+                result = "1";
+            }
 
-
+            if (result == "1")
+                await DisplayAlert("Brak połączenia", "Nie masz połączenia z internetem lub serwer nie jest dostępny", "OK");
+            else if (string.IsNullOrEmpty(result))
+                await DisplayAlert("Błędne dane", "Spróbuj ponownie", "OK");
+            else
+                await Navigation.PushAsync(new MainPage());
         }
 
         private async void EnterRegister(object sender, EventArgs e)

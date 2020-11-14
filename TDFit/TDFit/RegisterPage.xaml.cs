@@ -32,7 +32,7 @@ namespace TDFit
                 await DisplayAlert("Błąd", "Wypełnij puste pola", "OK");
                 return;
             }
-            var uri = new Uri(string.Format("http://172.17.82.129:44417/api/account/register", string.Empty));
+            var uri = new Uri(string.Format("http://192.168.43.212:45459/api/account/register", string.Empty));
             var client = new HttpClient();
             var model = new RegisterModel
             {
