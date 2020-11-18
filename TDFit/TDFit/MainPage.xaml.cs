@@ -18,6 +18,11 @@ namespace TDFit
             InitializeComponent();
         }
 
+        private async void OnLogOut(object sender, EventArgs e)
+        {
+            await Navigation.PopToRootAsync();
+            Application.Current.Properties["MyToken"] = "";
+        }
         private async void OnSummaryClicked(object sender, EventArgs e)
         {
            

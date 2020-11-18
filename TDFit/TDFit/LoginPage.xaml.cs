@@ -50,7 +50,7 @@ namespace TDFit
                 var json = JsonConvert.SerializeObject(login);
 
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync("http://192.168.43.212:45459/api/account/login", content);
+                HttpResponseMessage response = await client.PostAsync("http://192.168.43.212:45455/api/account/login", content);
 
                 // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
                 result = await response.Content.ReadAsStringAsync();
@@ -61,14 +61,16 @@ namespace TDFit
             catch(Exception xd)
             {
                 result = "1";
+                
             }
-
             if (result == "1")
                 await DisplayAlert("Brak połączenia", "Nie masz połączenia z internetem lub serwer nie jest dostępny", "OK");
-            else if (string.IsNullOrEmpty(result))
+            else if (string.IsNullOrEmpty(result) || result == "Invalid username or password")
                 await DisplayAlert("Błędne dane", "Spróbuj ponownie", "OK");
             else
                 await Navigation.PushAsync(new MainPage());
+
+
         }
 
         private async void EnterRegister(object sender, EventArgs e)

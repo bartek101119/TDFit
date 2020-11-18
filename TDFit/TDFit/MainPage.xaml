@@ -11,7 +11,11 @@
         <Label Text="Strona Główna" TextColor="White" FontSize="Title" Margin="10,0" />
     </NavigationPage.TitleView>
     <ContentPage.Content>
-    <StackLayout>
+        <StackLayout>
+            <StackLayout>
+                <Button Text="Wyloguj" BackgroundColor="#439299" FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                Clicked="OnLogOut" CornerRadius="18" TextColor="Black" />
+            </StackLayout>
         <Grid>
                 <Button  Text="Podsumowanie" BackgroundColor="Blue" FontAttributes="Bold" 
                 Clicked="OnSummaryClicked" CornerRadius="18" TextColor="White" Grid.Column="0" Grid.Row="3"   />
