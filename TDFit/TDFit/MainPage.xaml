@@ -5,28 +5,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TDFit.MainPage"
-             BackgroundColor="GhostWhite">
+             BackgroundColor="GhostWhite"
+             NavigationPage.HasBackButton="False">
 
     <NavigationPage.TitleView>
         <Label Text="Strona Główna" TextColor="White" FontSize="Title" Margin="10,0" />
     </NavigationPage.TitleView>
-    <ContentPage.Content>
-        <StackLayout>
-            <StackLayout>
-                <Button Text="Wyloguj" BackgroundColor="#439299" FontAttributes="Bold" HorizontalOptions="FillAndExpand"
-                Clicked="OnLogOut" CornerRadius="18" TextColor="Black" />
-            </StackLayout>
+    <StackLayout Padding="0" BackgroundColor="LightGray">
         <Grid>
-                <Button  Text="Podsumowanie" BackgroundColor="Blue" FontAttributes="Bold" 
-                Clicked="OnSummaryClicked" CornerRadius="18" TextColor="White" Grid.Column="0" Grid.Row="3"   />
-
-                <Button  Text="Chcę schudnąć" BackgroundColor="Blue" FontAttributes="Bold" 
+            <StackLayout  Padding="0" Margin="0" >
+                <Frame BackgroundColor="LightBlue" HeightRequest="130" HorizontalOptions="FillAndExpand" Padding="0">
+                    <Image Source="https://media3.s-nbcnews.com/i/newscms/2019_51/1406125/fruits-veggies-today-main-190130_5fce180c233a626539c5c65792a13462.jpg" Aspect="AspectFill" Margin="0"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Margin="15, 110, 15, 0">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand" CornerRadius="15">
+                    <StackLayout Margin="0, 25, 0, 0">
+                        <Button Text="Wyloguj" BackgroundColor="#439299" FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                Clicked="OnLogOut" CornerRadius="18" TextColor="Black" />
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                        <Button  Text="Podsumowanie" BackgroundColor="Blue" FontAttributes="Bold" 
+                Clicked="OnSummaryClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="3"   />
+                        <Button  Text="Chcę schudnąć" BackgroundColor="Blue" FontAttributes="Bold" 
                 Clicked="OnLoseWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="3"   />
-                <Button Text="Chcę przytyć" BackgroundColor="Blue" FontAttributes="Bold" 
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button Text="Chcę przytyć" BackgroundColor="Blue" FontAttributes="Bold" 
                 Clicked="OnGainWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="5" />
-        <Button Text="Chcę utrzymać wagę" BackgroundColor="Blue" FontAttributes="Bold"
+                            <Button Text="Chcę utrzymać wagę" BackgroundColor="Blue" FontAttributes="Bold"
                 Clicked="OnKeepWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="7"  />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </Grid>
     </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

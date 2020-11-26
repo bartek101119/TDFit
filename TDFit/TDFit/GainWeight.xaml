@@ -63,6 +63,9 @@
             </Frame>
             <Button Text="Oblicz" BackgroundColor="Blue" FontAttributes="Bold" 
                 Clicked="OnCalculateClicked" CornerRadius="18" TextColor="White" />
+            <Button Text="Pokaż swoje zapotrzebowanie na makroskładniki" BackgroundColor="Blue" FontAttributes="Bold" 
+                Clicked="OnMacroClicked" CornerRadius="18" TextColor="White" />
+            
         </StackLayout>
 
     </ContentPage.Content>
