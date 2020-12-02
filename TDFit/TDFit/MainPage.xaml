@@ -20,7 +20,7 @@
             </StackLayout>
             <StackLayout Margin="15, 110, 15, 0">
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand" CornerRadius="15">
-                    <StackLayout Margin="0, 25, 0, 0">
+                    <StackLayout Margin="0, 25, 0, 0" > 
                         <Button Text="Wyloguj" BackgroundColor="#439299" FontAttributes="Bold" HorizontalOptions="FillAndExpand"
                 Clicked="OnLogOut" CornerRadius="18" TextColor="Black" />
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
@@ -29,11 +29,16 @@
                         <Button  Text="Chcę schudnąć" BackgroundColor="Blue" FontAttributes="Bold" 
                 Clicked="OnLoseWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="3"   />
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
                             <Button Text="Chcę przytyć" BackgroundColor="Blue" FontAttributes="Bold" 
                 Clicked="OnGainWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="5" />
                             <Button Text="Chcę utrzymać wagę" BackgroundColor="Blue" FontAttributes="Bold"
                 Clicked="OnKeepWeightClicked" CornerRadius="18" TextColor="White" Grid.Column="1" Grid.Row="7"  />
+                
+                        </StackLayout>
+                        <StackLayout  Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                            <Button Text="Dziennik treningowy" BackgroundColor="Blue" FontAttributes="Bold"
+                Clicked="OnTrainingDiaryClicked" CornerRadius="18" TextColor="White" Grid.Column="2" Grid.Row="9"  />
                         </StackLayout>
                     </StackLayout>
                 </Frame>

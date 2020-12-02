@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:viewModels="clr-namespace:TDFit.ViewModel"
+             mc:Ignorable="d"
+             x:Class="TDFit.TrainingDiary">
+
+
+    <ContentPage.BindingContext>
+        <viewModels:TrainingBindingModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="headerTablet" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="detailTablet" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="ImgTablet" TargetType="Image">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <StackLayout>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="*" ></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Label Text="Dziennik Treningowy" Grid.Row="0" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                <StackLayout  Grid.Row="1">
+                    <Button x:Name="btnTrainingPopup" Clicked="btnTrainingPopupClicked" Text="Dodaj ćwiczenie"></Button>
+                </StackLayout>
+
+                <Grid Grid.Row="2" VerticalOptions="CenterAndExpand" Margin="10" Padding="10" BackgroundColor="White"  HeightRequest="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1.5*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Nazwa" Grid.Column="0" Grid.Row="0" Style="{DynamicResource headerTablet}"/>
+                    <Label Text="Serie" Grid.Column="1" Grid.Row="0" Style="{DynamicResource headerTablet}"/>
+                    <Label Text="Powt." Grid.Column="2" Grid.Row="0" Style="{DynamicResource headerTablet}"/>
+                    <Label Text="Edytuj" Grid.Column="3" Grid.Row="0" Style="{DynamicResource headerTablet}"/>
+                    <Label Text="Usuń" Grid.Column="4" Grid.Row="0" Style="{DynamicResource headerTablet}"/>
+                </Grid>
+                <BoxView Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                         HeightRequest="2" BackgroundColor="DarkGray"></BoxView>
+
+
+
+                <ListView ItemsSource="{Binding TrainingList}" IsPullToRefreshEnabled="True" x:Name="lstTraining" Grid.Row="4" Margin="4">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid VerticalOptions="CenterAndExpand" BackgroundColor="White" ColumnSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding ServiceName, Mode=TwoWay}" Grid.Column="0" Grid.Row="0" Style="{DynamicResource detailTablet}"/>
+                                    <Label Text="{Binding Series, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" Style="{DynamicResource detailTablet}"/>
+                                    <Label Text="{Binding Repeat, Mode=TwoWay}" Grid.Column="2" Grid.Row="0" Style="{DynamicResource detailTablet}"/>
+                                    <Image x:Name="EditTraining"  HorizontalOptions="Start" Grid.Column="3" Grid.Row="0" Source="edit.png" HeightRequest="20" WidthRequest="20" Style="{DynamicResource ImgTablet}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="EditTrainingTapped" NumberOfTapsRequired="1"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="RemoveTraining" HorizontalOptions="Start" Grid.Column="4" Grid.Row="0" Source="delete.png" HeightRequest="20" WidthRequest="20" Style="{DynamicResource ImgTablet}">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="RemoveTrainingTapped" NumberOfTapsRequired="1"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </Grid>
+
+        </StackLayout>
+        <ContentView x:Name="popupAddTrainingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="False" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout Orientation="Vertical" HeightRequest="240" WidthRequest="300" BackgroundColor="White" >
+                    <Image HorizontalOptions="End" Source="delete.png" HeightRequest="20" WidthRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageNameTappedClosePopup" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Picker x:Name="ServiceEntry" Margin="20,0,20,0" Title="Podaj nazwę" ItemsSource="{Binding ServiceList}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" />
+                    <Picker x:Name="SeriesEntry" Margin="20,0,20,0" Title="Ilość serii" ItemsSource="{Binding SeriesList}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" />
+                    <Entry x:Name="RepeatEntry" Margin="20,0,20,0" Placeholder="Ilość powtórzeń" Keyboard="Numeric" MaxLength="5">
+
+                    </Entry>
+                    <Button x:Name="btnAddTraining" Margin="20,0,20,0" Clicked="btnAddTrainingClicked" Text="Dodaj"></Button>
+                    <Button x:Name="btnUpdateTraining" Margin="20,0,20,0" Clicked="btnUpdateTrainingClicked" Text="Edytuj"></Button>
+                    </StackLayout>
+            </StackLayout>
+        </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

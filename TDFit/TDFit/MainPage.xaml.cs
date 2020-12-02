@@ -23,11 +23,15 @@ namespace TDFit
             await Navigation.PopToRootAsync();
             Application.Current.Properties["MyToken"] = "";
         }
+
+        private async void OnTrainingDiaryClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TrainingDiary());
+        }
         private async void OnSummaryClicked(object sender, EventArgs e)
         {
            
         }
-
         private async void OnLoseWeightClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoseWeight());
