@@ -23,6 +23,7 @@ namespace TDFit
         {
             InitializeComponent();
             evm = new TrainingBindingModel();
+            
         }
 
         protected override void OnAppearing()
@@ -31,7 +32,7 @@ namespace TDFit
             ExercisesList = new ObservableCollection<ServiceDetails>();
             ExercisesList = GetAllNameExercises();
             ServiceEntry.ItemsSource = ExercisesList.ToList();
-            ServiceEntry.ItemDisplayBinding = new Binding("ServiceName");
+            ServiceEntry.ItemDisplayBinding = new Binding("Name");
 
             SeriesList = new ObservableCollection<Series>();
             SeriesList = GetSeries();
@@ -60,9 +61,9 @@ namespace TDFit
         private void btnAddTrainingClicked(object sender, EventArgs e)
         {
             popupAddTrainingView.IsVisible = false;
-            string ServiceName = ((ServiceDetails)ServiceEntry.SelectedItem).ServiceName;
+            string ServiceName = ((ServiceDetails)ServiceEntry.SelectedItem).Name;
             string TotalSeries = ((Series)SeriesEntry.SelectedItem).TotalSeries;
-            TDiary trainingBindingModel = new TDiary() { ServiceName = ServiceName, Series = TotalSeries, Repeat = Convert.ToInt32(RepeatEntry.Text) };
+            TDiary trainingBindingModel = new TDiary() { Name = ServiceName, Series = TotalSeries, Repeat = Convert.ToInt32(RepeatEntry.Text) };
             evm.TrainingList.Add(trainingBindingModel);
 
             BindingContext = evm;
@@ -87,11 +88,11 @@ namespace TDFit
 
             // Bind current selected ServiceName
             List<ServiceDetails> AllServices = GetAllNameExercises().ToList();
-            var ServiceID = training.ServiceId;
-            ServiceDetails serviceDetails = AllServices.ToList().FirstOrDefault(a => a.ServiceId == ServiceID);
-            int index = AllServices.ToList().FindIndex(a => a.ServiceId == ServiceID);
+            var ServiceID = training.Id;
+            ServiceDetails serviceDetails = AllServices.ToList().FirstOrDefault(a => a.Id == ServiceID);
+            int index = AllServices.ToList().FindIndex(a => a.Id == ServiceID);
             ServiceEntry.ItemsSource = AllServices;
-            ServiceEntry.ItemDisplayBinding = new Binding("ServiceName");
+            ServiceEntry.ItemDisplayBinding = new Binding("Name");
             ServiceEntry.SelectedIndex = index;
 
             // Bind current selected Series
@@ -114,10 +115,10 @@ namespace TDFit
         {
             popupAddTrainingView.IsVisible = false;
 
-            int ServiceId = ((ServiceDetails)ServiceEntry.SelectedItem).ServiceId;
+            int ServiceId = ((ServiceDetails)ServiceEntry.SelectedItem).Id;
             string totalSeries = ((Series)SeriesEntry.SelectedItem).TotalSeries;
 
-            foreach (var item in evm.TrainingList.Where(w => w.ServiceId == ServiceId))
+            foreach (var item in evm.TrainingList.Where(w => w.Id == ServiceId))
             {
                 item.Series = totalSeries;
                 item.Repeat = Convert.ToInt32(RepeatEntry.Text);
@@ -140,10 +141,10 @@ namespace TDFit
         public List<ServiceDetails> GetAllNameExercises()
         {
             List<ServiceDetails> ServiceList = new List<ServiceDetails>();
-            ServiceList.Add(new ServiceDetails { ServiceId = 1, ServiceName = "Pompki" });
-            ServiceList.Add(new ServiceDetails { ServiceId = 2, ServiceName = "Podciąganie" });
-            ServiceList.Add(new ServiceDetails { ServiceId = 3, ServiceName = "Wyciskanie sztangą" });
-            ServiceList.Add(new ServiceDetails { ServiceId = 4, ServiceName = "Wiosłowanie hantlą" });
+            ServiceList.Add(new ServiceDetails { Id = 1, Name = "Pompki" });
+            ServiceList.Add(new ServiceDetails { Id = 2, Name = "Podciąganie" });
+            ServiceList.Add(new ServiceDetails { Id = 3, Name = "Wyciskanie sztangą" });
+            ServiceList.Add(new ServiceDetails { Id = 4, Name = "Wiosłowanie hantlą" });
             return ServiceList;
         }
     }

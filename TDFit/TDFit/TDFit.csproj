@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="ViewModel\Activity.cs" />
+    <Compile Remove="ViewModels\Activity.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,22 +39,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="GainWeight.xaml">
+    <EmbeddedResource Update="Views\GainWeight.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="KeepWeight.xaml">
+    <EmbeddedResource Update="Views\KeepWeight.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="LoginPage.xaml">
+    <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="LoseWeight.xaml">
+    <EmbeddedResource Update="Views\LoseWeight.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="RegisterPage.xaml">
+    <EmbeddedResource Update="Views\RegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TrainingDiary.xaml">
+    <EmbeddedResource Update="Views\TrainingDiary.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

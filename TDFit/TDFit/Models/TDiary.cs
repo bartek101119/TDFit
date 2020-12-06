@@ -9,8 +9,8 @@ namespace TDFit.Models
     public class TDiary
     {
 
-        public int ServiceId { get; set; }
-        public string ServiceName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string Series { get; set; }
         public int Repeat { get; set; }
 
@@ -23,9 +23,9 @@ namespace TDFit.Models
 
     public class ServiceDetails
     {
-        public int ServiceId { get; set; }
+        public int Id { get; set; }
         public string ServiceIcon { get; set; }
-        public string ServiceName { get; set; }
+        public string Name { get; set; }
     }
 
 }
