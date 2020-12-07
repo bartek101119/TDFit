@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TDFit.Models;
@@ -58,17 +61,33 @@ namespace TDFit
 
             }
         }
-        private void btnAddTrainingClicked(object sender, EventArgs e)
+        private async void btnAddTrainingClicked(object sender, EventArgs e)
         {
-            popupAddTrainingView.IsVisible = false;
-            string ServiceName = ((ServiceDetails)ServiceEntry.SelectedItem).Name;
-            string TotalSeries = ((Series)SeriesEntry.SelectedItem).TotalSeries;
-            TDiary trainingBindingModel = new TDiary() { Name = ServiceName, Series = TotalSeries, Repeat = Convert.ToInt32(RepeatEntry.Text) };
-            evm.TrainingList.Add(trainingBindingModel);
+            try
+            {
+                var token = Application.Current.Properties["MyToken"].ToString();
+                popupAddTrainingView.IsVisible = false;
+                string ServiceName = ((ServiceDetails)ServiceEntry.SelectedItem).Name;
+                string TotalSeries = ((Series)SeriesEntry.SelectedItem).TotalSeries;
+                TDiary trainingBindingModel = new TDiary() { Name = ServiceName, Series = TotalSeries, Repeat = Convert.ToInt32(RepeatEntry.Text) };
+                evm.TrainingList.Add(trainingBindingModel);
+               
+                BindingContext = evm;
 
-            BindingContext = evm;
+                lstTraining.IsRefreshing = false;
 
-            lstTraining.IsRefreshing = false;
+                var json = JsonConvert.SerializeObject(trainingBindingModel);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                var result = await client.PostAsync("http://192.168.43.212:45455/api/training", content);
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Błąd", "Dodanie ćwiczenia niepowiodło się. Spróbuj ponownie.", "Ok");
+            }
 
         }
 

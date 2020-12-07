@@ -19,7 +19,7 @@ namespace TDFit.Utils
                 var token = Application.Current.Properties["MyToken"].ToString();
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                HttpResponseMessage response = await client.GetAsync("http://192.168.1.18:45455/api/training");
+                HttpResponseMessage response = await client.GetAsync("http://192.168.43.212:45455/api/training");
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
