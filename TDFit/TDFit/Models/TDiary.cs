@@ -14,6 +14,10 @@ namespace TDFit.Models
         public string Series { get; set; }
         public int Repeat { get; set; }
 
+        public int UserId { get; set; }
+
+        public string Email { get; set; }
+
     }
 
     public class Series

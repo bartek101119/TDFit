@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TDFit.Models;
+using TDFit.Utils;
 using TDFit.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -65,11 +66,18 @@ namespace TDFit
         {
             try
             {
+                var email = Application.Current.Properties["MyEmail"].ToString();
                 var token = Application.Current.Properties["MyToken"].ToString();
                 popupAddTrainingView.IsVisible = false;
                 string ServiceName = ((ServiceDetails)ServiceEntry.SelectedItem).Name;
                 string TotalSeries = ((Series)SeriesEntry.SelectedItem).TotalSeries;
-                TDiary trainingBindingModel = new TDiary() { Name = ServiceName, Series = TotalSeries, Repeat = Convert.ToInt32(RepeatEntry.Text) };
+                TDiary trainingBindingModel = new TDiary() {
+                    Name = ServiceName, 
+                    Series = TotalSeries,
+                    Repeat = Convert.ToInt32(RepeatEntry.Text),
+                    Email = email
+                };
+
                 evm.TrainingList.Add(trainingBindingModel);
                
                 BindingContext = evm;
@@ -82,21 +90,67 @@ namespace TDFit
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                var result = await client.PostAsync("http://192.168.43.212:45455/api/training", content);
+                var result = await client.PostAsync("http://192.168.1.16:45455/api/training", content);
+
+                lstTraining.ItemsSource = evm.TrainingList;
+
+                if (result.IsSuccessStatusCode)
+                {
+                   
+                    Navigation.InsertPageBefore(new TrainingDiary(), this);
+                    await Navigation.PopAsync();
+
+
+                }
+                else
+                {
+                    await DisplayAlert("Błąd", "Dodanie ćwiczenia niepowiodło się. Uzupełnij wszystkie pola.", "Ok");
+                }
+
             }
             catch(Exception ex)
             {
-                await DisplayAlert("Błąd", "Dodanie ćwiczenia niepowiodło się. Spróbuj ponownie.", "Ok");
+                await DisplayAlert("Błąd", "Dodanie ćwiczenia niepowiodło się. Uzupełnij wszystkie pola.", "Ok");
             }
 
         }
-
-        private void RemoveTrainingTapped(object sender, EventArgs e)
+     
+        private async void RemoveTrainingTapped(object sender, EventArgs e)
         {
-            var button = sender as Image;
-            var training = button.BindingContext as TDiary; 
-            evm.TrainingList.Remove(training);
-            BindingContext = evm;
+            try
+            {
+
+
+                if (await DisplayAlert("Potwierdzenie", "Czy chcesz usunąć to ćwiczenie?", "Tak", "Anuluj"))
+                {
+               
+                    var button = sender as Image;
+                    var training = button.BindingContext as TDiary;
+                    var token = Application.Current.Properties["MyToken"].ToString();
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                    var result = await client.DeleteAsync("http://192.168.1.16:45455/api/training/" + $"{training.Id}");
+                    lstTraining.ItemsSource = evm.TrainingList;
+
+                    if (result.IsSuccessStatusCode)
+                    {
+                        
+                        Navigation.InsertPageBefore(new TrainingDiary(), this);
+                        await Navigation.PopAsync();
+                       
+
+                    }
+                    else
+                    {
+                        await DisplayAlert("Błąd", "Spróbuj ponownie później", "OK");
+
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         private void EditTrainingTapped(object sender, EventArgs e)
@@ -104,10 +158,12 @@ namespace TDFit
             var button = sender as Image;
             var training = button.BindingContext as TDiary;
             ServiceEntry.IsEnabled = false;
+          
 
             // Bind current selected ServiceName
             List<ServiceDetails> AllServices = GetAllNameExercises().ToList();
             var ServiceID = training.Id;
+            Application.Current.Properties["ID"] = ServiceID;
             ServiceDetails serviceDetails = AllServices.ToList().FirstOrDefault(a => a.Id == ServiceID);
             int index = AllServices.ToList().FindIndex(a => a.Id == ServiceID);
             ServiceEntry.ItemsSource = AllServices;
@@ -130,19 +186,46 @@ namespace TDFit
 
         }
 
-        private void btnUpdateTrainingClicked(object sender, EventArgs e)
+        private async void btnUpdateTrainingClicked(object sender, EventArgs e)
         {
             popupAddTrainingView.IsVisible = false;
-
-            int ServiceId = ((ServiceDetails)ServiceEntry.SelectedItem).Id;
+            var token = Application.Current.Properties["MyToken"].ToString();
+            var id = Convert.ToInt32(Application.Current.Properties["ID"].ToString());
+            
             string totalSeries = ((Series)SeriesEntry.SelectedItem).TotalSeries;
 
-            foreach (var item in evm.TrainingList.Where(w => w.Id == ServiceId))
+           
+            TDiary diary = new TDiary()
             {
-                item.Series = totalSeries;
-                item.Repeat = Convert.ToInt32(RepeatEntry.Text);
+                Series = totalSeries,
+                Repeat = Convert.ToInt32(RepeatEntry.Text)
+                
+            };
+
+            var json = JsonConvert.SerializeObject(diary);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var result = await client.PutAsync("http://192.168.1.16:45455/api/training/" + $"{id}", content);
+
+            if (result.IsSuccessStatusCode)
+            {
+                
+                Navigation.InsertPageBefore(new TrainingDiary(), this);
+                await Navigation.PopAsync();
+
+
             }
-            BindingContext = evm;
+            else
+            {
+                await DisplayAlert("Błąd", "Spróbuj ponownie później", "OK");
+
+            }
+
+            lstTraining.ItemsSource = evm.TrainingList;
         }
 
         public List<Series> GetSeries()

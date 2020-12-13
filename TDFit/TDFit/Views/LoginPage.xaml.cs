@@ -45,18 +45,21 @@ namespace TDFit
                 {
                     Email = email.Text,
                     Password = password.Text
-                };
+            };
 
                 var json = JsonConvert.SerializeObject(login);
 
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync("http://192.168.43.212:45455/api/account/login", content);
+                HttpResponseMessage response = await client.PostAsync("http://192.168.1.16:45455/api/account/login", content);
 
                 // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
                 result = await response.Content.ReadAsStringAsync();
 
                 Console.WriteLine(result);
                 Application.Current.Properties["MyToken"] = $"{result}";
+                Application.Current.Properties["MyEmail"] = $"{email.Text}";
+
+
             }
             catch(Exception xd)
             {

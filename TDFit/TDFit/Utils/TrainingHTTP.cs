@@ -14,12 +14,15 @@ namespace TDFit.Utils
     {
         public static async Task GetAllNewsAsync(Action<IEnumerable<TDiary>> action)
         {
+          
             try
             {
+                var email = Application.Current.Properties["MyEmail"].ToString();
                 var token = Application.Current.Properties["MyToken"].ToString();
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                HttpResponseMessage response = await client.GetAsync("http://192.168.43.212:45455/api/training");
+                HttpResponseMessage response = await client.GetAsync("http://192.168.1.16:45455/api/training/");
+             
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
