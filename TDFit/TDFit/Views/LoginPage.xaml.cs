@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TDFit.Models;
+using TDFit.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,7 +19,8 @@ namespace TDFit
         public LoginPage()
         {
             InitializeComponent();
-        
+         
+
         }
 
        /* private async void OnMainPageClicked(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace TDFit
                 var json = JsonConvert.SerializeObject(login);
 
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync("http://192.168.1.16:45455/api/account/login", content);
+                HttpResponseMessage response = await client.PostAsync("http://192.168.43.212:45455/api/account/login", content);
 
                 // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
                 result = await response.Content.ReadAsStringAsync();
@@ -58,6 +60,7 @@ namespace TDFit
                 Console.WriteLine(result);
                 Application.Current.Properties["MyToken"] = $"{result}";
                 Application.Current.Properties["MyEmail"] = $"{email.Text}";
+                
 
 
             }
@@ -71,7 +74,7 @@ namespace TDFit
             else if (string.IsNullOrEmpty(result) || result == "Invalid username or password")
                 await DisplayAlert("Błędne dane", "Spróbuj ponownie", "OK");
             else
-                await Navigation.PushAsync(new MainPage());
+                await Navigation.PushAsync(new CustomMaster());
 
 
         }

@@ -4,14 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TDFit.LoginPage">
+             x:Class="TDFit.LoginPage"
+              NavigationPage.HasBackButton="False"
+              NavigationPage.HasNavigationBar="false"
+               >
 
     <StackLayout Padding="0" BackgroundColor="LightGray">
 
         <Grid>
             <StackLayout  Padding="0" Margin="0" >
             <Frame BackgroundColor="LightBlue" HeightRequest="130" HorizontalOptions="FillAndExpand" Padding="0">
-                    <Image Source="https://media3.s-nbcnews.com/i/newscms/2019_51/1406125/fruits-veggies-today-main-190130_5fce180c233a626539c5c65792a13462.jpg" Aspect="AspectFill" Margin="0"/>
+                    <Image Source="tlo.jpg" Aspect="AspectFill" Margin="0"/>
                 </Frame>
             </StackLayout>
             <StackLayout Margin="15, 110, 15, 0">
@@ -26,7 +29,7 @@
                             <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0" Padding="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal">
                                     <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="35" WidthRequest="35" Padding="0" HorizontalOptions="Start" Margin="7">
-                                        <Image Source="https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731_960_720.png" Aspect="AspectFill" Margin="0" />
+                                        <Image Source="mail.png" Aspect="AspectFill" Margin="0" />
                                     </Frame>
                                     <Entry Text="test123@wp.pl" x:Name="email" Placeholder="Email" TextColor="HotPink" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
                                 </StackLayout>
@@ -34,7 +37,7 @@
                             <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal">
                                     <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="35" WidthRequest="35" Padding="0" HorizontalOptions="Start" Margin="7">
-                                        <Image Source="https://cdn.pixabay.com/photo/2016/12/18/12/49/cyber-security-1915628_960_720.png" Aspect="AspectFill" Margin="0"/>
+                                        <Image Source="klod.png" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
                                     <Entry Text="123456" x:Name="password" Placeholder="Hasło" IsPassword="True" TextColor="HotPink" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
                                 </StackLayout>

@@ -1,4 +1,5 @@
 ﻿using System;
+using TDFit.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,9 @@ namespace TDFit
         {
             InitializeComponent();
 
+        
             MainPage = new NavigationPage(new LoginPage());
+            
         }
 
         protected override void OnStart()

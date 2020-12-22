@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TDFit.Views;
 using Xamarin.Forms;
 
 namespace TDFit
@@ -16,14 +17,21 @@ namespace TDFit
         public MainPage()
         {
             InitializeComponent();
+
+       
         }
 
-        private async void OnLogOut(object sender, EventArgs e)
+        //private async void OnLogOut(object sender, EventArgs e)
+        //{
+
+
+        //    Application.Current.MainPage = new NavigationPage(new LoginPage());
+        //    Application.Current.Properties["MyToken"] = "";
+        //}
+        private async void OnBMIClicked(object sender, EventArgs e)
         {
-            await Navigation.PopToRootAsync();
-            Application.Current.Properties["MyToken"] = "";
+            await Navigation.PushAsync(new BMI());
         }
-
         private async void OnTrainingDiaryClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TrainingDiary());

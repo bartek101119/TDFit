@@ -32,7 +32,7 @@ namespace TDFit
                 await DisplayAlert("Błąd", "Wypełnij puste pola", "OK");
                 return;
             }
-            var uri = new Uri(string.Format("http://192.168.1.16:45455/api/account/register", string.Empty));
+            var uri = new Uri(string.Format("http://192.168.43.212:45455/api/account/register", string.Empty));
             var client = new HttpClient();
             var model = new RegisterModel
             {
@@ -55,7 +55,7 @@ namespace TDFit
             else
             {
                 Debug.WriteLine(response);
-                await DisplayAlert("Błąd", "Hasło musi składać się z minimum 6 znaków, 1 znaku specjalnego i wielkiej litery!", "OK");
+                await DisplayAlert("Błąd", "Podałeś nieprawidłowe dane! (Hasło powinno się składać z minimum 6 znaków)", "OK");
             }
         }
     }

@@ -2,15 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:TDFit.ViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TDFit.GainWeight"
+             x:Class="TDFit.Views.BMI"
              BackgroundColor="LightGray">
-    <ContentPage.BindingContext>
-        <local:Gender></local:Gender>
-    </ContentPage.BindingContext>
 
-        <StackLayout >
+
+    <StackLayout >
         <Grid>
             <StackLayout  >
                 <Frame BackgroundColor="LightBlue" HeightRequest="130" HorizontalOptions="FillAndExpand" Padding="0">
@@ -21,19 +19,11 @@
             <StackLayout Margin="15, 60, 15, 0">
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="350" HorizontalOptions="FillAndExpand" CornerRadius="30">
                     <StackLayout>
-                        <Label Text="Oblicz kalorie i makroskładniki" HorizontalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
-                        <Frame Margin="0,20,0,0"
-            Padding="10, 5, 10, 5"
-            HasShadow="False"
-            BorderColor="Blue"
-            CornerRadius="30">
-                            <Picker ItemDisplayBinding="{Binding Gender}" x:Name="genderEntry"
-                    Title="Wybierz płeć:" 
-                    ItemsSource="{Binding Calories}" HorizontalOptions="CenterAndExpand" />
-                        </Frame>
+                        <Label Text="Oblicz swój wskaźnik masy ciała" HorizontalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                        
 
                         <Grid>
-                            <Frame
+                            <Frame 
             Padding="10, 5, 10, 5"
             HasShadow="False"
             BorderColor="Blue"
@@ -54,34 +44,36 @@
 
                         <Grid>
                             <Frame
-            Padding="10, 5, 10, 5"
-            HasShadow="False"
-            BorderColor="Blue"
-            CornerRadius="30">
-                                <Entry x:Name="ageEntry" Placeholder="Podaj swój wiek:" HorizontalOptions="CenterAndExpand" Keyboard= "Numeric" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+            Padding="10, 50, 35, 10"
+            BorderColor="LightGray"
+            CornerRadius="5"
+            HasShadow="True" >
                             </Frame>
+                            <StackLayout HorizontalOptions="Center" Margin="0,25,0,25">
+                            <Label Text="Mniej niż 18.5 : Niedowaga" TextColor="Black" FontSize="Subtitle"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="Center" Margin="0,50,0,50">
+                                <Label Text="18.5-25 : W normie" TextColor="Black" FontSize="Subtitle"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="Center" Margin="0,75,0,75">
+                                <Label Text="25-30 : Nadwaga" TextColor="Black" FontSize="Subtitle"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="Center" Margin="0,100,0,100">
+                                <Label Text="Powyżej 30 : Otyłość" TextColor="Black" FontSize="Subtitle"/>
+                            </StackLayout>
                         </Grid>
-                        <Frame 
-            Padding="10, 5, 10, 5"
-            HasShadow="False"
-            BorderColor="Blue"
-            CornerRadius="30">
-                            <Picker ItemDisplayBinding="{Binding Activity}" x:Name="activityEntry"
-                    Title="Wybierz swoją aktywność:" 
-                    ItemsSource="{Binding Activities}" HorizontalOptions="CenterAndExpand" />
-                        </Frame>
-                   </StackLayout>
-               
-            </Frame>
+
+
+
+                    </StackLayout>
+
+                </Frame>
             </StackLayout>
             <StackLayout Margin="15, 450, 15, 0">
                 <Button Text="Oblicz" BackgroundColor="Blue" FontAttributes="Bold" 
                 Clicked="OnCalculateClicked" CornerRadius="18" TextColor="White" />
-                <Button Text="Pokaż swoje zapotrzebowanie na makroskładniki" BackgroundColor="Blue" FontAttributes="Bold" 
-                Clicked="OnMacroClicked" CornerRadius="18" TextColor="White" />
+             
             </StackLayout>
         </Grid>
     </StackLayout>
-      
-
 </ContentPage>

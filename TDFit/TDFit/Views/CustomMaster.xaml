@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TDFit.Views.CustomMaster"
+             xmlns:Image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:pages="clr-namespace:TDFit.Views"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="false">
+
+        <MasterDetailPage.Master>
+
+            <ContentPage Title="Menu" BackgroundColor="#fff">
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" Margin="0,20,20,0">
+                <ScrollView VerticalOptions="Start">
+                    <StackLayout Orientation="Vertical" BackgroundColor="White">
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout VerticalOptions="Center" BackgroundColor="White">
+                                <Label x:Name="lblName" Text="TDFit" FontSize="40" TextColor="Black" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+
+                                <Image:CircleImage
+                                x:Name="imgProfilePicture"
+                                Source="ImageOnDetailPage.png"
+                                Aspect="AspectFill"
+                                VerticalOptions="Start"
+                                HorizontalOptions="CenterAndExpand"
+                                Margin="0,-80,0,0"/>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,-60,0,0" BackgroundColor="Silver"
+                                     MinimumHeightRequest="1" Orientation="Vertical"
+                                     HeightRequest="1"
+                                     HorizontalOptions="FillAndExpand">
+                                <Label Text="fff" FontSize="1" TextColor="Black"
+                                            BackgroundColor="Black"
+                                            HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <ListView x:Name="navigationList" Margin="0" SeparatorVisibility="Default"
+                              VerticalOptions="Start" ItemTapped="Item_Tapped">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="Center">
+                                            <Image Source="prof.png"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center" Margin="15,0,5,2"
+                                                        HeightRequest="25"
+                                                        WidthRequest="25"/>
+                                            <Label Text="{Binding OptionName}" FontAttributes="Bold"
+                                               FontSize="Default" Margin="10,0,5,2"
+                                               HorizontalOptions="Start" VerticalOptions="Center"
+                                               TextColor="#4a4848"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </ContentPage>
+        
+    </MasterDetailPage.Master>
+   
+</MasterDetailPage>

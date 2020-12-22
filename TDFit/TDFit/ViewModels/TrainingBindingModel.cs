@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using TDFit.Models;
@@ -51,6 +52,7 @@ namespace TDFit.ViewModel
                      {
                          if (item.Email == email)
                          {
+                             
                              TrainingList.Add(item);
                             
                          }
