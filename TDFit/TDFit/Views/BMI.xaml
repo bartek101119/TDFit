@@ -50,16 +50,16 @@
             HasShadow="True" >
                             </Frame>
                             <StackLayout HorizontalOptions="Center" Margin="0,25,0,25">
-                            <Label Text="Mniej niż 18.5 : Niedowaga" TextColor="Black" FontSize="Subtitle"/>
+                            <Label Text="Mniej niż 18.5 : Niedowaga"  FontSize="Subtitle"/>
                             </StackLayout>
                             <StackLayout HorizontalOptions="Center" Margin="0,50,0,50">
-                                <Label Text="18.5-25 : W normie" TextColor="Black" FontSize="Subtitle"/>
+                                <Label Text="18.5-25 : W normie"  FontSize="Subtitle"/>
                             </StackLayout>
                             <StackLayout HorizontalOptions="Center" Margin="0,75,0,75">
-                                <Label Text="25-30 : Nadwaga" TextColor="Black" FontSize="Subtitle"/>
+                                <Label Text="25-30 : Nadwaga"  FontSize="Subtitle"/>
                             </StackLayout>
                             <StackLayout HorizontalOptions="Center" Margin="0,100,0,100">
-                                <Label Text="Powyżej 30 : Otyłość" TextColor="Black" FontSize="Subtitle"/>
+                                <Label Text="Powyżej 30 : Otyłość"  FontSize="Subtitle"/>
                             </StackLayout>
                         </Grid>
 
