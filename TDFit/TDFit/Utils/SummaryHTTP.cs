@@ -10,27 +10,27 @@ using Xamarin.Forms;
 
 namespace TDFit.Utils
 {
-    public class TrainingHTTP
+    public class SummaryHTTP
     {
-        public static async Task GetAllNewsAsync(Action<IEnumerable<TDiary>> action)
+        public static async Task GetAllNewsAsync(Action<IEnumerable<Summary>> action)
         {
-          
+
             try
             {
                 var email = Application.Current.Properties["MyEmail"].ToString();
                 var token = Application.Current.Properties["MyToken"].ToString();
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                HttpResponseMessage response = await client.GetAsync("http://192.168.100.4:45455/api/training/");
-             
+                HttpResponseMessage response = await client.GetAsync("http://192.168.43.212:45455/api/summary/");
+
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    var list = JsonConvert.DeserializeObject<IEnumerable<TDiary>>(await response.Content.ReadAsStringAsync());
+                    var list = JsonConvert.DeserializeObject<IEnumerable<Summary>>(await response.Content.ReadAsStringAsync());
                     action(list);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }

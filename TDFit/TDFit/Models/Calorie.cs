@@ -23,5 +23,7 @@ namespace TDFit.Models
         public double Fat { get; set; }
 
         public double Kcal { get; set; }
+
+
     }
 }

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TDFit.Models;
@@ -206,6 +209,44 @@ namespace TDFit
                 }          
 
             await DisplayAlert("TDFit", "Twoje zapotrzebowanie dzienne to: " + Convert.ToInt32(calorie.Kcal) + " kalorii", "Ok");
+
+                var email = Application.Current.Properties["MyEmail"].ToString();
+                var token = Application.Current.Properties["MyToken"].ToString();
+
+                Summary model = new Summary()
+                {
+                    Id = 2,
+                    Weight = weight,
+                    KcalLose = calorie.Kcal,
+                    CarbohydrateLose = calorie.Carbohydrate,
+                    ProteinLose = calorie.Protein,
+                    FatLose = calorie.Fat,
+                    Email = email
+                };
+
+                var json = JsonConvert.SerializeObject(model);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                var result = await client.PostAsync("http://192.168.43.212:45455/api/summary", content);
+
+                Summary model2 = new Summary()
+                {
+                    Id = 2,
+                    Weight = weight,
+                    KcalLose = calorie.Kcal,
+                    CarbohydrateLose = calorie.Carbohydrate,
+                    ProteinLose = calorie.Protein,
+                    FatLose = calorie.Fat,
+                    Email = email
+                };
+                var json1 = JsonConvert.SerializeObject(model2);
+                var content1 = new StringContent(json1, Encoding.UTF8, "application/json");
+                HttpClient client1 = new HttpClient();
+                client1.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var result2 = client1.PutAsync("http://192.168.43.212:45455/api/summary/" + $"{2}", content1);
             }
             catch (Exception hm)
             {

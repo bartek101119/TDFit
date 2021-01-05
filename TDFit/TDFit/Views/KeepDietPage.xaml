@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TDFit.Views.KeepDietPage"
+             BackgroundColor="LightGray"
+             xmlns:local="clr-namespace:TDFit.ViewModels" >
+    <!--xmlns:custom="clr-namespace:TDFit.CustomControls;assembly=TDFit"-->
+
+    <NavigationPage.TitleView>
+        <StackLayout Margin="0,0,15,0">
+            <Image Source="food.png"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="End">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnImageTapped" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.BindingContext>
+        <local:KeepDietBindingModel></local:KeepDietBindingModel>
+    </ContentPage.BindingContext>
+
+    <StackLayout >
+        <Grid>
+            <StackLayout  >
+                <Frame BackgroundColor="LightBlue" HeightRequest="130" HorizontalOptions="FillAndExpand" Padding="0">
+                    <Image Source="tlo.jpg" Aspect="AspectFill"/>
+
+                </Frame>
+            </StackLayout>
+            <StackLayout Margin="15, 60, 15, 0">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout>
+                        <Label Text="Ułóż swoją dietę" HorizontalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="Wybierz datę:" HorizontalOptions="CenterAndExpand" FontSize="Body"/>
+                        <Grid>
+                            <Frame
+            Padding="5, 5, 5, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+
+                                <!--<custom:DatePickerCtrl  x:Name="dtPck"  Placeholder="Wybierz datę" Format="dd/MM/yyyy"  HorizontalOptions="CenterAndExpand" />-->
+                                <DatePicker  x:Name="dtPck" Format="dd/MM/yyyy"  HorizontalOptions="CenterAndExpand" />
+                            </Frame>
+                        </Grid>
+                       
+                        <Frame Margin="0,0,0,0"
+            Padding="5, 5, 5, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                            <Picker ItemDisplayBinding="{Binding TimeOfEat}" x:Name="TimesOfEatEntry"
+                    Title="Wybierz porę:" 
+                    ItemsSource="{Binding TimesOfEat}" HorizontalOptions="CenterAndExpand" />
+                        </Frame>
+                       
+
+                        <Grid>
+                            <Frame
+            Padding="5, 5, 5, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                                <Entry x:Name="nameEntry" Placeholder="Podaj nazwę produktu:" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+                            </Frame>
+                        </Grid>
+
+                        <Grid>
+                            <Frame
+            Padding="5, 5, 5, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                                <Entry x:Name="kcalEntry" Placeholder="Podaj ilość kalorii:" HorizontalOptions="CenterAndExpand" Keyboard= "Numeric" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+                            </Frame>
+                        </Grid>
+
+                        <Grid>
+                            <Frame
+            Padding="5, 5, 5, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                                <Entry x:Name="proteinEntry" Placeholder="Podaj ilość białka:" HorizontalOptions="CenterAndExpand" Keyboard= "Numeric" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+                            </Frame>
+                        </Grid>
+                        <Grid>
+                            <Frame
+            Padding="5, 5, 5, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                                <Entry x:Name="carboEntry" Placeholder="Podaj ilość węglowodanów:" HorizontalOptions="CenterAndExpand" Keyboard= "Numeric" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+                            </Frame>
+                        </Grid>
+                        <Grid>
+                            <Frame
+            Padding="5, 5, 5, 5"
+            HasShadow="False"
+            BorderColor="Blue"
+            CornerRadius="30">
+                                <Entry x:Name="fatEntry" Placeholder="Podaj ilość tłuszczów:" HorizontalOptions="CenterAndExpand" Keyboard= "Numeric" HorizontalTextAlignment="Center" ClearButtonVisibility="WhileEditing" />
+                            </Frame>
+                        </Grid>
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+            <StackLayout Margin="15, 550, 15, 0">
+                <Button Text="Dodaj produkt do listy" BackgroundColor="Blue" FontAttributes="Bold" 
+                Clicked="OnAddProductClicked" CornerRadius="18" TextColor="White" />
+              
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

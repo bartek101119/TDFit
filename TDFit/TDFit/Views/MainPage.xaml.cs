@@ -28,6 +28,10 @@ namespace TDFit
         //    Application.Current.MainPage = new NavigationPage(new LoginPage());
         //    Application.Current.Properties["MyToken"] = "";
         //}
+        private async void OnKeepDietClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new KeepDietPage());
+        }
         private async void OnBMIClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new BMI());
@@ -38,7 +42,7 @@ namespace TDFit
         }
         private async void OnSummaryClicked(object sender, EventArgs e)
         {
-           
+            await Navigation.PushAsync(new SummaryPage());
         }
         private async void OnLoseWeightClicked(object sender, EventArgs e)
         {

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TDFit.Views.SummaryPage"
+             BackgroundColor="LightGray">
+
+
+
+    <StackLayout Margin="0,0,0,0">
+
+        <StackLayout Margin="0,0,0,0" >
+            <Frame BackgroundColor="SkyBlue" HeightRequest="130" HorizontalOptions="FillAndExpand" Padding="0" CornerRadius="5">
+                <Image Source="tlo.jpg" Aspect="AspectFill"/>
+                
+            </Frame>
+        </StackLayout>
+
+        <StackLayout>
+            <Label Margin="0,0,0,0" Text="Dla utrzymania wagi: " VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large" TextColor="Black" FontAttributes="Bold"/>
+            </StackLayout> 
+        <StackLayout>
+            <Frame>
+        <ListView ItemsSource="{Binding SummaryList}" x:Name="lstSummary">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="0" Margin="0,0,0,0">
+                            
+                            <Label Margin="0,0,0,0" Text="Waga" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Węgl." VerticalOptions="Center" Grid.Column="1" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Białko" VerticalOptions="Center" Grid.Column="2" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Tłuszcze" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Kalorie" VerticalOptions="Center" Grid.Column="4" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black"  FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateKeep}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding ProteinKeep}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding FatKeep}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding KcalKeep}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                           
+                            <!--<Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0" Grid.Row="2" BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateLose}" VerticalOptions="Center" Grid.Column="1" Grid.Row="2"  BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding ProteinLose}" VerticalOptions="Center" Grid.Column="2" Grid.Row="2"  BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding FatLose}" VerticalOptions="Center" Grid.Column="3" Grid.Row="2"  BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding KcalLose}" VerticalOptions="Center" Grid.Column="4" Grid.Row="2" BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                           
+                            <Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0"  Grid.Row="3"  BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateGain}" VerticalOptions="Center" Grid.Column="1" Grid.Row="3"  BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding ProteinGain}" VerticalOptions="Center" Grid.Column="2" Grid.Row="3"  BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding FatGain}" VerticalOptions="Center" Grid.Column="3" Grid.Row="3"  BackgroundColor="#FDDA8A" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding KcalGain}" VerticalOptions="Center" Grid.Column="4" Grid.Row="3" BackgroundColor="#FDDA8A" FontSize = "Small"/>-->
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </Frame>
+        </StackLayout>
+        <StackLayout>
+            <Label Margin="0,0,0,0" Text="Dla zmniejszenia wagi: " VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large" TextColor="Black" FontAttributes="Bold"/>
+        </StackLayout>
+        <StackLayout>
+            <Frame>
+        <ListView ItemsSource="{Binding SsummaryList}" x:Name="lsSummary">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        
+                        <Grid Padding="0" Margin="0,0,0,0">
+
+                            <Label Margin="0,0,0,0" Text="Waga" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Węgl." VerticalOptions="Center" Grid.Column="1" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Białko" VerticalOptions="Center" Grid.Column="2" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Tłuszcze" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Kalorie" VerticalOptions="Center" Grid.Column="4" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+
+                            <Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateLose}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding ProteinLose}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding FatLose}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding KcalLose}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                      
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </Frame>
+        </StackLayout>
+        <StackLayout>
+            <Label Margin="0,0,0,0" Text="Dla zwiększenia wagi: " VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large" TextColor="Black" FontAttributes="Bold"/>
+        </StackLayout>
+        <StackLayout>
+            <Frame>
+        <ListView ItemsSource="{Binding SssummaryList}" x:Name="lSummary">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="0" Margin="0,0,0,0">
+
+
+                            <Label Margin="0,0,0,0" Text="Waga" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Węgl." VerticalOptions="Center" Grid.Column="1" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Białko" VerticalOptions="Center" Grid.Column="2" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Tłuszcze" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="Kalorie" VerticalOptions="Center" Grid.Column="4" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0"  Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateGain}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding ProteinGain}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding FatGain}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding KcalGain}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
