@@ -23,7 +23,7 @@
             </StackLayout> 
         <StackLayout>
             <Frame>
-        <ListView ItemsSource="{Binding SummaryList}" x:Name="lstSummary">
+                <ListView ItemsSource="{Binding SummaryList}" x:Name="lstSummary" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -64,7 +64,7 @@
         </StackLayout>
         <StackLayout>
             <Frame>
-        <ListView ItemsSource="{Binding SsummaryList}" x:Name="lsSummary">
+                <ListView ItemsSource="{Binding SsummaryList}" x:Name="lsSummary" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -96,7 +96,7 @@
         </StackLayout>
         <StackLayout>
             <Frame>
-        <ListView ItemsSource="{Binding SssummaryList}" x:Name="lSummary">
+                <ListView ItemsSource="{Binding SssummaryList}" x:Name="lSummary" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

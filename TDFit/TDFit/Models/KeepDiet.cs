@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace TDFit.Models
@@ -19,5 +20,7 @@ namespace TDFit.Models
         public string Email { get; set; }
         public int TimeOfEatId { get; set; }
     }
+
+  
 
 }

@@ -37,7 +37,7 @@
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand" CornerRadius="30">
                     <StackLayout>
                         <Label Text="Ułóż swoją dietę" HorizontalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
-                        <Label Text="Wybierz datę:" HorizontalOptions="CenterAndExpand" FontSize="Body"/>
+                        <!--<Label Text="Wybierz datę:" HorizontalOptions="CenterAndExpand" FontSize="Body"/>
                         <Grid>
                             <Frame
             Padding="5, 5, 5, 5"
@@ -45,10 +45,10 @@
             BorderColor="Blue"
             CornerRadius="30">
 
-                                <!--<custom:DatePickerCtrl  x:Name="dtPck"  Placeholder="Wybierz datę" Format="dd/MM/yyyy"  HorizontalOptions="CenterAndExpand" />-->
+                                --><!--<custom:DatePickerCtrl  x:Name="dtPck"  Placeholder="Wybierz datę" Format="dd/MM/yyyy"  HorizontalOptions="CenterAndExpand" />--><!--
                                 <DatePicker  x:Name="dtPck" Format="dd/MM/yyyy"  HorizontalOptions="CenterAndExpand" />
                             </Frame>
-                        </Grid>
+                        </Grid>-->
                        
                         <Frame Margin="0,0,0,0"
             Padding="5, 5, 5, 5"

@@ -199,7 +199,7 @@ namespace TDFit
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                 
-                var result = await client.PostAsync("http://192.168.43.212:45455/api/summary", content);
+                var result = await client.PostAsync("http://192.168.100.4:45455/api/summary", content);
 
                 Summary model2 = new Summary()
                 {
@@ -215,7 +215,7 @@ namespace TDFit
                 var content1 = new StringContent(json1, Encoding.UTF8, "application/json");
                 HttpClient client1 = new HttpClient();
                 client1.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                var result2 = client1.PutAsync("http://192.168.43.212:45455/api/summary/" + $"{3}", content1);
+                var result2 = client1.PutAsync("http://192.168.100.4:45455/api/summary/" + $"{3}", content1);
 
                 //SummaryHTTP.GetAllNewsAsync(list =>
                 //{

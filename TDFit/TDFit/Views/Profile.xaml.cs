@@ -42,7 +42,7 @@ namespace TDFit.Views
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var result = await client.PutAsync("http://192.168.43.212:45455/api/account/ChangePassword", content);
+            var result = await client.PutAsync("http://192.168.100.4:45455/api/account/ChangePassword", content);
             if (result.IsSuccessStatusCode)
             {
                 

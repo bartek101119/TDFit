@@ -74,7 +74,7 @@
 
 
 
-                <ListView ItemsSource="{Binding TrainingList}" IsPullToRefreshEnabled="True" x:Name="lstTraining" Grid.Row="4" Margin="4">
+                    <ListView ItemsSource="{Binding TrainingList}" IsPullToRefreshEnabled="True" x:Name="lstTraining" Grid.Row="4" Margin="4" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

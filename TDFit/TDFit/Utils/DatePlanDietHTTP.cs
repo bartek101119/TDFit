@@ -10,9 +10,9 @@ using Xamarin.Forms;
 
 namespace TDFit.Utils
 {
-    public class SummaryHTTP
+    public class DatePlanDietHTTP
     {
-        public static async Task GetAllNewsAsync(Action<IEnumerable<Summary>> action)
+        public static async Task GetAllNewsAsync(Action<IEnumerable<DatePlanDiet>> action)
         {
 
             try
@@ -21,12 +21,12 @@ namespace TDFit.Utils
                 var token = Application.Current.Properties["MyToken"].ToString();
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                HttpResponseMessage response = await client.GetAsync("http://192.168.100.4:45455/api/summary/");
+                HttpResponseMessage response = await client.GetAsync("http://192.168.100.4:45455/api/keepdiet/");
 
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    var list = JsonConvert.DeserializeObject<IEnumerable<Summary>>(await response.Content.ReadAsStringAsync());
+                    var list = JsonConvert.DeserializeObject<IEnumerable<DatePlanDiet>>(await response.Content.ReadAsStringAsync());
                     action(list);
                 }
             }

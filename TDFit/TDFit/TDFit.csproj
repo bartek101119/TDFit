@@ -26,6 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\DatePlanDiet.cs" />
+    <Compile Remove="Utils\DatePlanDietHTTP.cs" />
+    <Compile Remove="Utils\Grouping.cs" />
     <Compile Remove="ViewModels\Activity.cs" />
     <Compile Remove="Views\CustomMasterDetail.xaml.cs" />
     <Compile Remove="Views\CustomMasterMaster.xaml.cs" />
