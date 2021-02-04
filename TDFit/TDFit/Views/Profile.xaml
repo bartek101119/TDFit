@@ -9,7 +9,7 @@
 
 
     <StackLayout Padding="40,80,40,0">
-        <Entry x:Name="email" Placeholder="Email" FontSize="20"  PlaceholderColor="Gray"
+        <Entry x:Name="email" Placeholder="E-mail" FontSize="20"  PlaceholderColor="Gray"
                    WidthRequest="300" HorizontalTextAlignment="Center"/>
         <Entry x:Name="oldPassword" Placeholder="Stare hasło" FontSize="20" IsPassword="True" PlaceholderColor="Gray"
                    WidthRequest="300" HorizontalTextAlignment="Center"/>

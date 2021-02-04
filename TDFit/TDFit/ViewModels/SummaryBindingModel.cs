@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
@@ -97,12 +98,12 @@ namespace TDFit.ViewModels
                         if (item.Email == email && item.CarbohydrateKeep.ToString() != numberZero && (item.Id > 0 && item.Id < 4))
                         {
 
-                            SummaryList.Add(item);
-
+                            SummaryList.Add(item);                          
                         }
                         else if (item.Email == email && item.CarbohydrateLose.ToString() != numberZero && (item.Id > 0 && item.Id < 4))
                         {
                             SsummaryList.Add(item);
+                            
                         }
                         else if (item.Email == email && item.CarbohydrateGain.ToString() != numberZero && (item.Id > 0 && item.Id < 4))
                         {

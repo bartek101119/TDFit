@@ -34,11 +34,11 @@
                             <Label Margin="0,0,0,0" Text="Białko" VerticalOptions="Center" Grid.Column="2" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
                             <Label Margin="0,0,0,0" Text="Tłuszcze" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
                             <Label Margin="0,0,0,0" Text="Kalorie" VerticalOptions="Center" Grid.Column="4" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
-                            <Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black"  FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateKeep}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding ProteinKeep}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding FatKeep}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding KcalKeep}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding Weight, StringFormat='{0:N0}'}"  VerticalOptions="Center" Grid.Column="0" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black"  FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateKeep, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding ProteinKeep, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding FatKeep, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                            <Label Margin="0,0,0,0" Text="{Binding KcalKeep, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
                            
                             <!--<Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0" Grid.Row="2" BackgroundColor="#FDDA8A" FontSize = "Small"/>
                             <Label Margin="0,0,0,0" Text="{Binding CarbohydrateLose}" VerticalOptions="Center" Grid.Column="1" Grid.Row="2"  BackgroundColor="#FDDA8A" FontSize = "Small"/>
@@ -77,11 +77,11 @@
                             <Label Margin="0,0,0,0" Text="Tłuszcze" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
                             <Label Margin="0,0,0,0" Text="Kalorie" VerticalOptions="Center" Grid.Column="4" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
 
-                            <Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateLose}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding ProteinLose}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding FatLose}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding KcalLose}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding Weight, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding CarbohydrateLose, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding ProteinLose, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding FatLose, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding KcalLose, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
                       
 
                         </Grid>
@@ -108,11 +108,11 @@
                             <Label Margin="0,0,0,0" Text="Białko" VerticalOptions="Center" Grid.Column="2" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
                             <Label Margin="0,0,0,0" Text="Tłuszcze" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
                             <Label Margin="0,0,0,0" Text="Kalorie" VerticalOptions="Center" Grid.Column="4" Grid.Row="0" FontSize = "Small" TextColor="Black" FontAttributes="Bold"/>
-                            <Label Margin="0,0,0,0" Text="{Binding Weight}" VerticalOptions="Center" Grid.Column="0"  Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding CarbohydrateGain}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding ProteinGain}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding FatGain}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
-                            <Label Margin="0,0,0,0" Text="{Binding KcalGain}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding Weight, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="0"  Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding CarbohydrateGain, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding ProteinGain, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="2" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding FatGain, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="3" Grid.Row="1"  BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
+                                    <Label Margin="0,0,0,0" Text="{Binding KcalGain, StringFormat='{0:N0}'}" VerticalOptions="Center" Grid.Column="4" Grid.Row="1" BackgroundColor="SkyBlue" TextColor="Black" FontSize = "Small"/>
 
                         </Grid>
                     </ViewCell>

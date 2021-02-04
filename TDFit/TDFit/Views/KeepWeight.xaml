@@ -6,11 +6,10 @@
              mc:Ignorable="d"
              x:Class="TDFit.KeepWeight"
              BackgroundColor="LightGray">
+    
     <ContentPage.BindingContext>
         <local:Gender></local:Gender>
      </ContentPage.BindingContext>
-
-
 
     <StackLayout >
         <Grid>
@@ -84,6 +83,4 @@
             </StackLayout>
         </Grid>
     </StackLayout>
-
-
 </ContentPage>

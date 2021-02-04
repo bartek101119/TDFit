@@ -60,8 +60,6 @@ namespace TDFit
                 Console.WriteLine(result);
                 Application.Current.Properties["MyToken"] = $"{result}";
                 Application.Current.Properties["MyEmail"] = $"{email.Text}";
-           
-
 
 
             }

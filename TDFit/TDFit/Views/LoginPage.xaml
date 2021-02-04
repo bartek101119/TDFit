@@ -45,10 +45,10 @@
                         </StackLayout>
                      
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox IsChecked="False" Color="HotPink"/>
+                            <!--<CheckBox IsChecked="False" Color="HotPink"/>
                             <Label Text="Zapamiętaj hasło" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
 
-                            <Label Text="Przypomnij hasło" FontAttributes="Bold" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="HotPink"/>
+                            <Label Text="Przypomnij hasło" FontAttributes="Bold" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="HotPink"/>-->
                         </StackLayout>
                         <Button Clicked="OnMainPageClicked" Text="Zaloguj" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold" CornerRadius="30" />
 

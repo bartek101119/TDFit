@@ -5,45 +5,69 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:TDFit.CustomControls"
              mc:Ignorable="d"
              x:Class="TDFit.Views.DietPlan"
-             BackgroundColor="LightGray">
+             BackgroundColor="AliceBlue">
 
     <NavigationPage.TitleView>
        
         <StackLayout Margin="0,0,0,0">
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.1*"/>
+                    <ColumnDefinition Width="1.75*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+
+                </Grid.ColumnDefinitions>
                 <Label Text="Kcal:"  FontSize="Body" TextColor="White" Grid.Column="0" Grid.Row="0"/>
-                <Label Text="{Binding Sum}"  FontSize="Body" TextColor="White" Grid.Column="0" Grid.Row="1"/>
+                <Label Text="{Binding Sum}"  FontSize="Small" TextColor="White" Grid.Column="0" Grid.Row="1" />
 
-                <Label Text="Białko (g):" FontSize="Body" TextColor="White" Grid.Column="1" Grid.Row="0"/>
-                <Label Text="{Binding SumProtein}" FontSize="Body" TextColor="White" Grid.Column="1" Grid.Row="1"/>
 
-                <Label Text="Węgl. (g):" FontSize="Body" TextColor="White" Grid.Column="2" Grid.Row="0"/>
-                <Label Text="{Binding SumCarbo}" FontSize="Body" TextColor="White" Grid.Column="2" Grid.Row="1"/>
+                <Label Text="Białk.(g)" Margin="0,0,20,0" FontSize="Body" TextColor="White" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="{Binding SumProtein}" FontSize="Small" TextColor="White" Grid.Column="1" Grid.Row="1"/>
+
                 
-                <Label Text="Tłusz. (g):" FontSize="Body" TextColor="White" Grid.Column="3" Grid.Row="0"/>
-                <Label Text="{Binding SumCarbo}" FontSize="Body" TextColor="White" Grid.Column="3" Grid.Row="1"/>
+                <Label Text="Węgl.(g)" FontSize="Body" TextColor="White" Grid.Column="2" Grid.Row="0"/>
+                <Label Text="{Binding SumCarbo}" FontSize="Small" TextColor="White" Grid.Column="2" Grid.Row="1"/>
+
+                
+                <Label Text="Tłusz.(g)" FontSize="Body" TextColor="White" Grid.Column="3" Grid.Row="0"/>
+                <Label Text="{Binding SumCarbo}" FontSize="Small" TextColor="White" Grid.Column="3" Grid.Row="1"/>
+
             </Grid>
         </StackLayout>
     </NavigationPage.TitleView>
 
-    <StackLayout Margin="0,5,0,0" >
-        <ScrollView>
-            <StackLayout>
-                <StackLayout>
-                    
-                    <!--<BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center"
-                         HeightRequest="2" BackgroundColor="DarkGray"></BoxView>-->
-                    <Label Text="Śniadanie:" HorizontalOptions="Center" FontSize="Body" TextColor="Black" />
+    <StackLayout Margin="0,0,0,0" >
 
-                </StackLayout>
-        <ListView x:Name="listview" ItemsSource="{Binding KeepDietList} " BackgroundColor="AliceBlue" SelectionMode="None" >
+        <ScrollView>
+            <StackLayout Margin="0,0,0,0">
+             
+                <!--<Label Text="Śniadanie:" HorizontalOptions="Center" FontSize="Body" TextColor="Black" />-->
+                <ListView x:Name="listview" ItemsSource="{Binding KeepDietList} " BackgroundColor="AliceBlue" SelectionMode="None" Margin="0,0,0,0" >
                
                 <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                             <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout>
+                                        <Label Text="{Binding TimeOfEat}" Grid.Column="1" TextColor="Black" />
+                                    </StackLayout>
                                     <StackLayout Margin="0,0,0,0" HorizontalOptions="Center" Grid.Column="2">
-                            <Label Text="{Binding Name}"  />
+                                       
+                                        <Label Text="{Binding Name}"  />
                             </StackLayout>
                                     <Image x:Name="RemoveTraining" HorizontalOptions="Start" Grid.Column="4" Source="delete.png" HeightRequest="20" WidthRequest="20" Style="{DynamicResource ImgTablet}">
                                         <Image.GestureRecognizers>
@@ -60,12 +84,27 @@
         </ScrollView>
         <ScrollView>
             <StackLayout>
-                <Label Text="II śniadanie:" HorizontalOptions="Center" FontSize="Body" TextColor="Black"/>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                         HeightRequest="2" BackgroundColor="DarkGray" Margin="0,3,0,0"></BoxView>
+                <!--<Label Text="II śniadanie:" HorizontalOptions="Center" FontSize="Body" TextColor="Black"/>-->
                 <ListView x:Name="listvieww" ItemsSource="{Binding KeepDietListDate} " BackgroundColor="AliceBlue" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout>
+                                        <Label Text="{Binding TimeOfEat}" Grid.Column="1" TextColor="Black" />
+                                    </StackLayout>
                                     <StackLayout Margin="0,0,0,0" HorizontalOptions="Center" Grid.Column="2">
                                 <Label Text="{Binding Name}"   />
                             </StackLayout>
@@ -83,12 +122,27 @@
         </ScrollView>
         <ScrollView>
             <StackLayout>
-                <Label Text="Obiad:" HorizontalOptions="Center" FontSize="Body" TextColor="Black"/>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                         HeightRequest="2" BackgroundColor="DarkGray" Margin="0,15,0,0" ></BoxView>
+                <!--<Label Text="Obiad:" HorizontalOptions="Center" FontSize="Body" TextColor="Black"/>-->
                 <ListView x:Name="listviewww" ItemsSource="{Binding KeepDietListtt} " BackgroundColor="AliceBlue" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout>
+                                        <Label Text="{Binding TimeOfEat}" Grid.Column="1" TextColor="Black" />
+                                    </StackLayout>
                                     <StackLayout Margin="0,0,0,0" HorizontalOptions="Center" Grid.Column="2">
                                     <Label Text="{Binding Name}" />
                                 </StackLayout>
@@ -107,12 +161,27 @@
         </ScrollView>
         <ScrollView>
             <StackLayout>
-                <Label Text="Podwieczorek:" HorizontalOptions="Center" FontSize="Body" TextColor="Black"/>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                         HeightRequest="2" BackgroundColor="DarkGray" Margin="0,30,0,0" ></BoxView>
+                <!--<Label Text="Podwieczorek:" HorizontalOptions="Center" FontSize="Body" TextColor="Black"/>-->
                 <ListView x:Name="listviewwww" ItemsSource="{Binding KeepDietListttt} " BackgroundColor="AliceBlue" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout>
+                                        <Label Text="{Binding TimeOfEat}" Grid.Column="1" TextColor="Black"/>
+                                    </StackLayout>
                                     <StackLayout Margin="0,0,0,0" HorizontalOptions="Center" Grid.Column="2">
                                     <Label Text="{Binding Name}"  />
                                 </StackLayout>
@@ -130,12 +199,27 @@
         </ScrollView>
         <ScrollView>
             <StackLayout>
-                <Label Text="Kolacja:" HorizontalOptions="Center" FontSize="Body" TextColor="Black"/>
+                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                         HeightRequest="2" BackgroundColor="DarkGray" Margin="0,40,0,0"></BoxView>
+                <!--<Label Text="Kolacja:" HorizontalOptions="Center" FontSize="Body" TextColor="Black"/>-->
                 <ListView x:Name="listviewwwww" ItemsSource="{Binding KeepDietListtttt} " BackgroundColor="AliceBlue" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout>
+                                        <Label Text="{Binding TimeOfEat}" Grid.Column="1" TextColor="Black"/>
+                                    </StackLayout>
                                     <StackLayout Margin="0,0,0,0" HorizontalOptions="Center" Grid.Column="2">
                                     <Label Text="{Binding Name}" />
                                 </StackLayout>

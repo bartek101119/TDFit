@@ -40,7 +40,7 @@
                         </StackLayout>
 
                         <ListView x:Name="navigationList" Margin="0" SeparatorVisibility="Default"
-                              VerticalOptions="Start" ItemTapped="Item_Tapped">
+                              VerticalOptions="Start" ItemTapped="Item_Tapped"  SelectionMode="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

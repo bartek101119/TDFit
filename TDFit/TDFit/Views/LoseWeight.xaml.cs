@@ -262,7 +262,7 @@ namespace TDFit
             }
             else
             {
-                await DisplayAlert("TDFit", "Twoje zapotrzebowanie dzienne na białko: " + Convert.ToInt32(calorie.Protein) + " g" + ", tłuszcze: " + Convert.ToInt32(calorie.Fat) + " g" + ", węglowodany: " + Convert.ToInt32(calorie.Carbohydrate) + " g", "Ok");
+                await DisplayAlert("TDFit", "Twoje zapotrzebowanie dzienne na białko: " + Convert.ToInt32(calorie.Protein) + "g" + ", tłuszcze: " + Convert.ToInt32(calorie.Fat) + "g" + ", węglowodany: " + Convert.ToInt32(calorie.Carbohydrate) + "g", "Ok");
             }
         }
     }

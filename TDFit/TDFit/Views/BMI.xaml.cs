@@ -32,7 +32,6 @@ namespace TDFit.Views
 
                 bmi = bmiT * 10000;
                 bmi = Math.Round(bmi, 2);
-                
 
                 if(bmi < 18.5)
                 {
@@ -50,15 +49,11 @@ namespace TDFit.Views
                 {
                     await DisplayAlert("TDFit", "BMI wynosi: " + bmi + ". Według wskaźnika waga jest za wysoka (otyłość)", "Ok");
                 }
-
-
-
             }
             catch (Exception hm)
             {
                 await DisplayAlert("Błąd", "Uzupełnij wszystkie pola", "Ok");
             }
-
         }
     }
 }

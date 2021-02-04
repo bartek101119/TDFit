@@ -113,7 +113,7 @@
 
                 </Frame>
             </StackLayout>
-            <StackLayout Margin="15, 550, 15, 0">
+            <StackLayout Margin="15, 511, 15, 0">
                 <Button Text="Dodaj produkt do listy" BackgroundColor="Blue" FontAttributes="Bold" 
                 Clicked="OnAddProductClicked" CornerRadius="18" TextColor="White" />
               
