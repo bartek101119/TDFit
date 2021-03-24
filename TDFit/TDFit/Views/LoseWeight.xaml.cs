@@ -215,7 +215,7 @@ namespace TDFit
 
                 Summary model = new Summary()
                 {
-                    Id = 2,
+
                     Weight = weight,
                     KcalLose = calorie.Kcal,
                     CarbohydrateLose = calorie.Carbohydrate,
@@ -230,11 +230,11 @@ namespace TDFit
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                var result = await client.PostAsync("http://192.168.100.4:45455/api/summary", content);
+                var result = await client.PostAsync("http://192.168.43.212:45455/api/summary", content);
 
                 Summary model2 = new Summary()
                 {
-                    Id = 2,
+                 
                     Weight = weight,
                     KcalLose = calorie.Kcal,
                     CarbohydrateLose = calorie.Carbohydrate,
@@ -246,7 +246,7 @@ namespace TDFit
                 var content1 = new StringContent(json1, Encoding.UTF8, "application/json");
                 HttpClient client1 = new HttpClient();
                 client1.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                var result2 = client1.PutAsync("http://192.168.100.4:45455/api/summary/" + $"{2}", content1);
+                var result2 = client1.PutAsync("http://192.168.43.212:45455/api/summary/" + $"{calorie.Id}", content1);
             }
             catch (Exception hm)
             {

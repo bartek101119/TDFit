@@ -83,36 +83,43 @@ namespace TDFit.ViewModels
             SsummaryList = new ObservableCollection<Summary>();
             SssummaryList = new ObservableCollection<Summary>();
 
-            string numberZero = "0";
-            string numberOne = "1";
-            string numberTwo = "2";
-            string numberThree = "3";
 
             try
             {
                 SummaryHTTP.GetAllNewsAsync(list =>
                 {
+                    Summary item1 = list.LastOrDefault(k => k.Email == email && k.CarbohydrateGain == 0 && k.CarbohydrateLose == 0);
+                    Summary item2 = list.LastOrDefault(k => k.Email == email && k.CarbohydrateGain == 0 && k.CarbohydrateKeep == 0);
+                    Summary item3 = list.LastOrDefault(k => k.Email == email && k.CarbohydrateLose == 0 && k.CarbohydrateKeep == 0);
 
-                    foreach (Summary item in list)
-                    {
-                        if (item.Email == email && item.CarbohydrateKeep.ToString() != numberZero && (item.Id > 0 && item.Id < 4))
-                        {
+                    SummaryList.Add(item1);
+                    SsummaryList.Add(item2);
+                    SssummaryList.Add(item3);
 
-                            SummaryList.Add(item);                          
-                        }
-                        else if (item.Email == email && item.CarbohydrateLose.ToString() != numberZero && (item.Id > 0 && item.Id < 4))
-                        {
-                            SsummaryList.Add(item);
+                    //foreach (Summary item in list)
+                    //{
+
+                        
+
+
+                    //    if (item.Email == email && item.CarbohydrateKeep != 0 )
+                    //    {
+
+                    //        SummaryList.Add(item);                          
+                    //    }
+                    //    else if (item.Email == email && item.CarbohydrateLose != 0 )
+                    //    {
+                    //        SsummaryList.Add(item);
                             
-                        }
-                        else if (item.Email == email && item.CarbohydrateGain.ToString() != numberZero && (item.Id > 0 && item.Id < 4))
-                        {
-                            SssummaryList.Add(item);
-                        }
+                    //    }
+                    //    else if (item.Email == email && item.CarbohydrateGain != 0 )
+                    //    {
+                    //        SssummaryList.Add(item);
+                    //    }
 
 
 
-                    }
+                    //}
                 });
             }
             catch(Exception ex)

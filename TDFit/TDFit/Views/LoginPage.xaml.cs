@@ -52,7 +52,7 @@ namespace TDFit
                 var json = JsonConvert.SerializeObject(login);
 
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync("http://192.168.100.4:45455/api/account/login", content);
+                HttpResponseMessage response = await client.PostAsync("http://192.168.43.212:45455/api/account/login", content);
 
                 // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
                 result = await response.Content.ReadAsStringAsync();
