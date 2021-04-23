@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TDFit.Models;
+using TDFit.Views;
 using Xamarin.Forms;
 
 namespace TDFit.Utils
@@ -21,7 +22,7 @@ namespace TDFit.Utils
                 var token = Application.Current.Properties["MyToken"].ToString();
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                HttpResponseMessage response = await client.GetAsync("http://192.168.43.212:45455/api/summary/");
+                HttpResponseMessage response = await client.GetAsync($"http://{Profile.ipDoMetodHttp}/api/summary/");
 
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)

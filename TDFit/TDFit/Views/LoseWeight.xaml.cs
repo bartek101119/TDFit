@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TDFit.Models;
+using TDFit.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -230,7 +231,7 @@ namespace TDFit
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                var result = await client.PostAsync("http://192.168.43.212:45455/api/summary", content);
+                var result = await client.PostAsync($"http://{Profile.ipDoMetodHttp}/api/summary", content);
 
                 Summary model2 = new Summary()
                 {
@@ -246,7 +247,7 @@ namespace TDFit
                 var content1 = new StringContent(json1, Encoding.UTF8, "application/json");
                 HttpClient client1 = new HttpClient();
                 client1.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                var result2 = client1.PutAsync("http://192.168.43.212:45455/api/summary/" + $"{calorie.Id}", content1);
+                var result2 = client1.PutAsync($"http://{Profile.ipDoMetodHttp}/api/summary/" + $"{calorie.Id}", content1);
             }
             catch (Exception hm)
             {

@@ -15,6 +15,7 @@ namespace TDFit.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Profile : ContentPage
     {
+        public static string ipDoMetodHttp = "192.168.1.15:45455";
         public Profile()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace TDFit.Views
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var result = await client.PutAsync("http://192.168.100.4:45455/api/account/ChangePassword", content);
+            var result = await client.PutAsync($"http://{ipDoMetodHttp}/api/account/ChangePassword", content);
             if (result.IsSuccessStatusCode)
             {
                 

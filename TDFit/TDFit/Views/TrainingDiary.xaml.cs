@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using TDFit.Models;
 using TDFit.Utils;
 using TDFit.ViewModel;
+using TDFit.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -90,7 +91,7 @@ namespace TDFit
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                var result = await client.PostAsync("http://192.168.100.4:45455/api/training", content);
+                var result = await client.PostAsync($"http://{Profile.ipDoMetodHttp}/api/training", content);
 
                 lstTraining.ItemsSource = evm.TrainingList;
 
@@ -129,7 +130,7 @@ namespace TDFit
                     var token = Application.Current.Properties["MyToken"].ToString();
                     HttpClient client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    var result = await client.DeleteAsync("http://192.168.100.4:45455/api/training/" + $"{training.Id}");
+                    var result = await client.DeleteAsync($"http://{Profile.ipDoMetodHttp}/api/training/" + $"{training.Id}");
                     lstTraining.ItemsSource = evm.TrainingList;
 
                     if (result.IsSuccessStatusCode)
@@ -209,7 +210,7 @@ namespace TDFit
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var result = await client.PutAsync("http://192.168.100.4:45455/api/training/" + $"{id}", content);
+            var result = await client.PutAsync($"http://{Profile.ipDoMetodHttp}/api/training/" + $"{id}", content);
 
             if (result.IsSuccessStatusCode)
             {

@@ -41,7 +41,7 @@ namespace TDFit.Views
                     var token = Application.Current.Properties["MyToken"].ToString();
                     HttpClient client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    var result = await client.DeleteAsync("http://192.168.100.4:45455/api/keepdiet/" + $"{diet.Id}");
+                    var result = await client.DeleteAsync($"http://{Profile.ipDoMetodHttp}/api/keepdiet/" + $"{diet.Id}");
                     listview.ItemsSource = dietplan.KeepDietList;
 
                     if (result.IsSuccessStatusCode)
@@ -79,7 +79,7 @@ namespace TDFit.Views
                     var token = Application.Current.Properties["MyToken"].ToString();
                     HttpClient client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    var result = await client.DeleteAsync("http://192.168.100.4:45455/api/keepdiet/" + $"{diet.Id}");
+                    var result = await client.DeleteAsync($"http://{Profile.ipDoMetodHttp}/api/keepdiet/" + $"{diet.Id}");
                     listview.ItemsSource = dietplan.KeepDietList;
 
                     if (result.IsSuccessStatusCode)
@@ -117,7 +117,7 @@ namespace TDFit.Views
                     var token = Application.Current.Properties["MyToken"].ToString();
                     HttpClient client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    var result = await client.DeleteAsync("http://192.168.100.4:45455/api/keepdiet/" + $"{diet.Id}");
+                    var result = await client.DeleteAsync($"http://{Profile.ipDoMetodHttp}/api/keepdiet/" + $"{diet.Id}");
                     listview.ItemsSource = dietplan.KeepDietList;
 
                     if (result.IsSuccessStatusCode)
@@ -155,7 +155,7 @@ namespace TDFit.Views
                     var token = Application.Current.Properties["MyToken"].ToString();
                     HttpClient client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    var result = await client.DeleteAsync("http://192.168.100.4:45455/api/keepdiet/" + $"{diet.Id}");
+                    var result = await client.DeleteAsync($"http://{Profile.ipDoMetodHttp}/api/keepdiet/" + $"{diet.Id}");
                     listview.ItemsSource = dietplan.KeepDietList;
 
                     if (result.IsSuccessStatusCode)
@@ -193,7 +193,7 @@ namespace TDFit.Views
                     var token = Application.Current.Properties["MyToken"].ToString();
                     HttpClient client = new HttpClient();
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    var result = await client.DeleteAsync("http://192.168.100.4:45455/api/keepdiet/" + $"{diet.Id}");
+                    var result = await client.DeleteAsync($"http://{Profile.ipDoMetodHttp}/api/keepdiet/" + $"{diet.Id}");
                     listview.ItemsSource = dietplan.KeepDietList;
 
                     if (result.IsSuccessStatusCode)

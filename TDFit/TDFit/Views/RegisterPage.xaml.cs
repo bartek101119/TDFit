@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TDFit.Models;
+using TDFit.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,7 +33,7 @@ namespace TDFit
                 await DisplayAlert("Błąd", "Wypełnij puste pola", "OK");
                 return;
             }
-            var uri = new Uri(string.Format("http://192.168.43.212:45455/api/account/register", string.Empty));
+            var uri = new Uri(string.Format($"http://{Profile.ipDoMetodHttp}/api/account/register", string.Empty));
             var client = new HttpClient();
             var model = new RegisterModel
             {
